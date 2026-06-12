@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo-area">
+        <h1>StudyHub</h1>
+        <h2>Seu cronograma de <br><em>estudos</em></h2>
+      </div>
+    </div>
+    <div class="week-info">
+      <span class="week-label">Semana atual</span>
+      <span class="week-num" id="week-num">—</span>
+    </div>
+  </header>
+
+  <div class="main-grid">
+
+    <aside class="sidebar">
+
+      <!-- Formulário de adição -->
+      <div class="sidebar-section">
+        <p class="section-label">Adicionar matéria</p>
+        <div class="field-group">
+          <label class="field-label" for="subject-name">Nome da matéria</label>
+          <input type="text" id="subject-name" class="field-input" placeholder="Ex: Matemática" autocomplete="off">
+        </div>
+        <div class="row2" style="padding:0">
+          <div class="field-group">
+            <label class="field-label" for="inp-horas">Horas/sem</label>
+            <input type="number" id="inp-horas" value="4" min="1" max="20">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="in-prior">Prioridade</label>
+            <select id="in-prior">
+              <option value="3">Alta</option>
+              <option value="2" selected>Média</option>
+              <option value="1">Baixa</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-add" onclick="adicionarMateria()">+ Adicionar matéria</button>
+      </div>
+
+      <!-- Lista de matérias (preenchida via JS) -->
+      <div class="sidebar-section">
+        <p class="section-label">Matérias (0)</p>
+        <div class="subject-list"></div>
+      </div>
+
+      <!-- Resumo da semana -->
+      <div class="sidebar-section">
+        <p class="section-label">Resumo da semana</p>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-val" id="s-horas">0h</div>
+            <div class="stat-key">horas totais</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="s-mat">0</div>
+            <div class="stat-key">matérias</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="s-sessoes">0</div>
+            <div class="stat-key">sessões</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="s-dias">0</div>
+            <div class="stat-key">dias ativos</div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- area do cronograma -->
+    <main class="schedule-area">
+      <div class="sched-top">
+        <h2>Grade semanal</h2>
+        <div class="sort-btns">
+          <button class="sort-btn active" data-sort="default" onclick="ordenarPor('default')">Ordem de adição</button>
+          <button class="sort-btn" data-sort="prioridade" onclick="ordenarPor('prioridade')">Por prioridade</button>
+          <button class="sort-btn" data-sort="horas" onclick="ordenarPor('horas')">Por horas</button>
+          <button class="sort-btn" data-sort="nome" onclick="ordenarPor('nome')">Por nome</button>
+          <button class="sort-btn" onclick="gerarPDF()">🖨 Imprimir</button>
+        </div>
+      </div>
+
+      <!-- Cabeçalho dos dias (gerado via JS) -->
+      <div class="cal-days-header" id="cal-days-header"></div>
+
+      <!-- Grade (gerada via JS) -->
+      <div class="cal-grid" id="cal-grid"></div>
+
+      <!-- Barras de progresso (geradas via JS) -->
+      <div class="progress-section" id="progress-section"></div>
+    </main>
+
+  </div><!-- /main-grid -->
+
+  <footer>
+    <span>Cronograma de estudos · HTML, CSS e JavaScript · Desenvolvido por Momentra</span>
+    <span>&copy; 2026 StudyHub. Todos os direitos reservados.</span>
+  </footer>
+
+  <!-- JS carregado no final do body para melhor performance -->
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
