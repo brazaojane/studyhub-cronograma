@@ -1,6 +1,6 @@
 STUDYHUB - Study Schedule
 br [Leia em português](README.pt-BR.md)
-Acesso:[janetebs.github.io/studyhub-cronograma](https://janetebs.github.io/studyhub-cronograma/)
+Acesso:[janetebs.github.io/studyhub-cronograma](https://brazaojane.github.io/studyhub-cronograma/)
 
 A web application that automatically generates a weekly study schedule 
 based on the subjects, weekly study hours, and priorities defined by the user.
